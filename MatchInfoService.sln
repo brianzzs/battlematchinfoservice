@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchInfoService", "MatchInfoService\MatchInfoService.csproj", "{485BCF6C-47E1-4EDD-A1DF-A66B68765711}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{485BCF6C-47E1-4EDD-A1DF-A66B68765711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485BCF6C-47E1-4EDD-A1DF-A66B68765711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485BCF6C-47E1-4EDD-A1DF-A66B68765711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485BCF6C-47E1-4EDD-A1DF-A66B68765711}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C667772-27A8-4928-AF95-B0377A061E49}
+	EndGlobalSection
+EndGlobal
