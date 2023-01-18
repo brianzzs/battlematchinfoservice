@@ -13,7 +13,7 @@ using var backLogConnection = new FirstGoalBetsDBContext();
 HttpClient client = new HttpClient();
 var startpage = 1;
 
-while (startpage <= 15 )
+while (startpage <= 2100 )
 {
     using var context = new FirstGoalBetsDBContext();
     string url = $"https://betsapi.com/le/22614/Esoccer-Battle--8-mins-play/p.{startpage}";
@@ -47,7 +47,7 @@ while (startpage <= 15 )
 
 
 var backlog = from match in backLogConnection.Match
-              join goals in backLogConnection.Goals on match.GameID equals goals.GameID into g
+              join goals in backLogConnection.Goals on match.GameID equals goals.GameID into g  
               from goals in g.DefaultIfEmpty()
               where goals.GameID == null
               select match;

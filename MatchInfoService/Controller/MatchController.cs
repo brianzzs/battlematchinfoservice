@@ -40,24 +40,22 @@ namespace MatchInfoService.Controller
                             var url = "https://betsapi.com";
                             var newUrl = item.InnerHtml.Split("\n").ToList().Where(e => e.Contains("<a")).Where(z => z.Contains("/r")).FirstOrDefault().Trim().Split("<a href=").Where(x => !x.Equals("")).FirstOrDefault().Split("<").ToList().FirstOrDefault().Split(">").FirstOrDefault().ToString().Replace("\"", "");
                             url = url + newUrl;
-                            var day = ("2022" + "-" + matchInfo[0].Trim().Replace("/", "-").Split(" ").FirstOrDefault().Trim());
-                            var hour = matchInfo[0].Trim().Replace("/", "-").Split(" ")[1];
+                            var day = item.Descendants("td").ToList()[0].OuterHtml.Split("data-dt=").ToList()[1].Split("T").ToList()[0].Trim('"');
+                            var hour = item.Descendants("td").ToList()[0].OuterHtml.Split("data-dt=").ToList()[1].Split("T").ToList()[1].Substring(0, 8);
                             var finalDate = day + " " + hour;
                             var matchDate = DateTime.Parse(finalDate);
                             matchDate = DateTime.SpecifyKind(matchDate, DateTimeKind.Utc);
                             var kind = matchDate.Kind;
                             DateTime dt = matchDate.ToLocalTime();
-
                             match.GameID = Int32.Parse(item.Descendants("a").ToList()[2].OuterHtml.Split("/r/")[1].Split("/").FirstOrDefault());
                             match.Date = dt;
 
-                            var homeplayer = matchInfo[1].Split(" v ").FirstOrDefault().Split("(").ToList().Select(z => z.Split(")")).ToList()[1].FirstOrDefault();  
+                            var homeplayer = matchInfo[1].Split(" v ").FirstOrDefault().Split("(").ToList().Select(z => z.Split(")")).ToList()[1].FirstOrDefault();
                             match.HomePlayerName = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(homeplayer);
                             match.HomeTeamName = matchInfo[1].Split(" v ").FirstOrDefault().Split("(").ToList().Select(z => z.Split(")")).ToList().FirstOrDefault()[0];
                             match.HomeScore = Int32.Parse(matchInfo[2].Split("-")[0]);
 
                             var awayplayer = matchInfo[1].Split(" v ")[1].Split("(").ToList().Select(z => z.Split(")")).ToList()[1].FirstOrDefault();
-                            //match.AwayPlayerName = char.ToUpper(awayplayer[0]) + awayplayer.Substring(1);
                             match.AwayPlayerName = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(awayplayer);
                             match.AwayTeamName = matchInfo[1].Split(" v ")[1].Split("(").ToList().Select(z => z.Split(")")).ToList().FirstOrDefault()[0];
                             match.AwayScore = Int32.Parse(matchInfo[2].Split("-")[1]);
@@ -110,7 +108,6 @@ namespace MatchInfoService.Controller
             finalDate = DateTime.SpecifyKind(finalDate, DateTimeKind.Utc);
             var kind = finalDate.Kind;
             DateTime dt = finalDate.ToLocalTime();
-
             return dt;
         }
     }
