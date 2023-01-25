@@ -69,7 +69,7 @@ foreach (var match in finalBackLog)
         {
             var connection = new FirstGoalBetsDBContext();
             goals.GoalsGameID = match.GameID;
-            goals.TotalGoals = match.TotalGoals;
+            goals.GoalsTotalGoals = match.TotalGoals;
             goals.FirstGoal = firstGoalPlayer;
             goals.GameDate = date;
             connection.Goals.Add(goals);
@@ -84,7 +84,7 @@ foreach (var match in finalBackLog)
         var goalsErro = new GoalsViewModel();
         {
             goalsErro.GoalsGameID = match.GameID;
-            goalsErro.TotalGoals = match.TotalGoals;
+            goalsErro.GoalsTotalGoals = match.TotalGoals;
             goalsErro.FirstGoal = "N";
             connectionError.Goals.Add(goalsErro);
             connectionError.SaveChanges();
