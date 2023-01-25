@@ -13,7 +13,7 @@ using var backLogConnection = new FirstGoalBetsDBContext();
 HttpClient client = new HttpClient();
 var startpage = 1;
 
-while (startpage <= 2100 )
+while (startpage <= 40 )
 {
     using var context = new FirstGoalBetsDBContext();
     string url = $"https://betsapi.com/le/22614/Esoccer-Battle--8-mins-play/p.{startpage}";
@@ -47,9 +47,9 @@ while (startpage <= 2100 )
 
 
 var backlog = from match in backLogConnection.Match
-              join goals in backLogConnection.Goals on match.GameID equals goals.GameID into g  
+              join goals in backLogConnection.Goals on match.GameID equals goals.GoalsGameID into g  
               from goals in g.DefaultIfEmpty()
-              where goals.GameID == null
+              where goals.GoalsGameID == null
               select match;
 
 var finalBackLog = backlog.ToList();
@@ -68,7 +68,7 @@ foreach (var match in finalBackLog)
         var goals = new GoalsViewModel();
         {
             var connection = new FirstGoalBetsDBContext();
-            goals.GameID = match.GameID;
+            goals.GoalsGameID = match.GameID;
             goals.TotalGoals = match.TotalGoals;
             goals.FirstGoal = firstGoalPlayer;
             goals.GameDate = date;
@@ -83,7 +83,7 @@ foreach (var match in finalBackLog)
         Console.WriteLine($"Erro ao pegar o primeiro gol - Jogo {match.UrlMatch}");
         var goalsErro = new GoalsViewModel();
         {
-            goalsErro.GameID = match.GameID;
+            goalsErro.GoalsGameID = match.GameID;
             goalsErro.TotalGoals = match.TotalGoals;
             goalsErro.FirstGoal = "N";
             connectionError.Goals.Add(goalsErro);

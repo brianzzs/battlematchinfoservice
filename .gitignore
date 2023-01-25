@@ -1,0 +1,23 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/MatchInfoService/FileContentIndex/82568eb6-1410-44f7-822e-51a9a2123ffc.vsidx
+/.vs/MatchInfoService/FileContentIndex
+/MatchInfoService/obj/project.nuget.cache
+/MatchInfoService/obj/project.assets.json
+/MatchInfoService/obj/MatchInfoService.csproj.nuget.g.props
+/MatchInfoService/obj/MatchInfoService.csproj.nuget.dgspec.json
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.pdb
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.genruntimeconfig.cache
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.GeneratedMSBuildEditorConfig.editorconfig
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.dll
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.csproj.FileListAbsolute.txt
+/MatchInfoService/obj/Debug/net6.0/MatchInfoService.assets.cache
+/MatchInfoService/bin/Debug/net6.0/MatchInfoService.pdb
+/MatchInfoService/bin/Debug/net6.0/MatchInfoService.dll
+/.vs/ProjectEvaluation/matchinfoservice.projects.v5.2
+/.vs/ProjectEvaluation/matchinfoservice.metadata.v5.2
+/.vs/MatchInfoService/v17/.suo
+/.vs/MatchInfoService/v17/.futdcache.v2
+/.vs/MatchInfoService/DesignTimeBuild/.dtbcache.v2
